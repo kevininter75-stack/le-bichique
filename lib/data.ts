@@ -66,7 +66,7 @@ export const menuMidi: Dish[] = [
     name: "Le Pain Bateau",
     description:
       "Notre sandwich marin : poisson snacké, achards croquants, sauce des pépitas. À manger face au port, évidemment.",
-    image: "/images/pain-bateau.jpg",
+    image: "/images/mezze.jpg",
   },
   {
     name: "Salade fraîcheur lagon",
@@ -80,12 +80,12 @@ export const menuSoir: Dish[] = [
   {
     name: "Rillettes de poisson fumé maison",
     description: "Fumées doucement au bois, à tartiner sans compter.",
-    image: "/images/rillettes.jpg",
+    image: "/images/mezze.jpg",
   },
   {
     name: "Samoussas du capitaine",
     description: "Pliés à la main, garnis du poisson de la semaine.",
-    image: "/images/samoussas.jpg",
+    image: "/images/tartare-mahi.jpg",
   },
   {
     name: "Gravlax combava",
@@ -95,12 +95,12 @@ export const menuSoir: Dish[] = [
   {
     name: "Achards de légumes péi",
     description: "Croquants, safranés, le compagnon de tout le reste.",
-    image: "/images/achards.jpg",
+    image: "/images/salade.jpg",
   },
   {
     name: "Tataki flammé au feu de bois",
     description: "Saisi une poignée de secondes, servi tiède, sauce soja-tamarin.",
-    image: "/images/tataki.jpg",
+    image: "/images/carpaccio.jpg",
   },
   {
     name: "La douceur du moment",

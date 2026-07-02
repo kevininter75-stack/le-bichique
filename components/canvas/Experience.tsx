@@ -32,7 +32,8 @@ export default function Experience({ tier, onReady }: Props) {
       <directionalLight position={[4, 6, 8]} intensity={0.5} color="#cdeef2" />
 
       <Ocean tier={tier} />
-      <Boat position={[2.4, 0.05, -7]} />
+      {/* Sur mobile, le bateau recule pour ne pas chevaucher le texte */}
+      <Boat position={tier === "low" ? [3.1, 0.05, -9.5] : [2.4, 0.05, -7]} />
       <MahiMahi />
       <CameraRig parallax={tier === "high"} />
     </Canvas>

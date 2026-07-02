@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Outfit } from "next/font/google";
+import SmoothScroll from "@/components/providers/SmoothScroll";
+import Cursor from "@/components/ui/Cursor";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -26,7 +28,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className={`${fraunces.variable} ${outfit.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <SmoothScroll>{children}</SmoothScroll>
+        <Cursor />
+      </body>
     </html>
   );
 }
