@@ -1,26 +1,68 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Palette « lagon de Saint-Gilles en fin de journée » */
+  --abysse: #041f2b; /* bleu nuit des fonds, arrière-plans sombres */
+  --lagon: #0a4d68; /* bleu lagon profond */
+  --lagon-clair: #14799c; /* lagon éclairé */
+  --turquoise: #2ec4b6; /* eau translucide, accents */
+  --ecume: #eef9f7; /* texte clair sur fonds sombres */
+  --sable: #f6e7ce; /* fonds chauds des sections claires */
+  --sable-chaud: #eed9b2;
+  --corail: #ff6f61; /* CTA, accents chaleureux */
+  --piment: #e94f64; /* rose piment, FOOD&FUNK */
+  --or: #f2b950; /* lumière dorée de fin de journée */
+  --encre: #12313e; /* texte sombre sur fonds clairs */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-abysse: var(--abysse);
+  --color-lagon: var(--lagon);
+  --color-lagon-clair: var(--lagon-clair);
+  --color-turquoise: var(--turquoise);
+  --color-ecume: var(--ecume);
+  --color-sable: var(--sable);
+  --color-sable-chaud: var(--sable-chaud);
+  --color-corail: var(--corail);
+  --color-piment: var(--piment);
+  --color-or: var(--or);
+  --color-encre: var(--encre);
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-outfit);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--abysse);
+  color: var(--ecume);
+  font-family: var(--font-outfit), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--turquoise);
+  color: var(--abysse);
+}
+
+/* Focus clavier toujours visible, aux couleurs de la marque */
+:focus-visible {
+  outline: 3px solid var(--or);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
