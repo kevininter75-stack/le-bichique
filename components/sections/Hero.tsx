@@ -59,7 +59,7 @@ export default function Hero() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to bottom, #062736 0%, #0d5d7d 32%, #6fb0c2 45%, #f7c473 52%, #f2b950 57%, #0a4d68 62%, #0a4d68 100%)",
+            "linear-gradient(to bottom, #041f2b 0%, #0a3e58 30%, #4f93a8 45%, #e8a643 52%, #e19b3c 57%, #083247 62%, #083247 100%)",
         }}
       />
       {/* Halo du soleil couchant */}
@@ -67,7 +67,7 @@ export default function Hero() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 42% 26% at 32% 50%, rgba(255, 217, 138, 0.55), transparent 70%)",
+            "radial-gradient(ellipse 42% 26% at 32% 50%, rgba(242, 185, 80, 0.42), transparent 70%)",
         }}
       />
 
@@ -76,7 +76,7 @@ export default function Hero() {
         <div
           className="absolute inset-x-0 bottom-0 h-[45%]"
           style={{
-            background: "linear-gradient(to bottom, #f2b950 0%, #0a4d68 12%, #2ec4b6 100%)",
+            background: "linear-gradient(to bottom, #e8a643 0%, #083247 12%, #17958d 100%)",
           }}
         />
       ) : (
@@ -84,6 +84,11 @@ export default function Hero() {
           <Experience tier={tier} onReady={() => setReady(true)} />
         </div>
       )}
+
+      {/* Voile de lisibilité derrière le contenu */}
+      <div className="pointer-events-none absolute inset-0 z-[5] bg-gradient-to-r from-abysse/65 via-abysse/25 to-transparent" />
+      {/* Fondu vers la section suivante pour une transition sans couture */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-56 bg-gradient-to-b from-transparent to-abysse" />
 
       {/* Voile de chargement, s'efface dès que la scène est prête */}
       {!reduced && (
@@ -104,7 +109,8 @@ export default function Hero() {
       >
         <p
           data-hero-kicker
-          className="mb-4 text-sm font-medium uppercase tracking-[0.25em] text-ecume/90"
+          className="mb-4 text-sm font-medium uppercase tracking-[0.25em] text-ecume"
+          style={{ textShadow: "0 1px 16px rgba(4, 31, 43, 0.7)" }}
         >
           Poisson frais &bull; Port de Saint-Gilles, La Réunion
         </p>
@@ -117,7 +123,11 @@ export default function Hero() {
           <br />
           Mahi Mahi
         </h1>
-        <p data-hero-text className="mt-6 max-w-md text-lg text-ecume/95 md:text-xl">
+        <p
+          data-hero-text
+          className="mt-6 max-w-md text-lg text-ecume md:text-xl"
+          style={{ textShadow: "0 1px 18px rgba(4, 31, 43, 0.75)" }}
+        >
           {restaurant.tagline}{" "}
           Amarré juste en bas, il ramène le poisson tous les deux ou trois jours — autant dire
           qu&apos;il n&apos;a pas le temps de s&apos;ennuyer.

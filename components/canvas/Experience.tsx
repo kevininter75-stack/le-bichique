@@ -27,8 +27,8 @@ export default function Experience({ tier, onReady }: Props) {
       aria-hidden="true"
     >
       {/* Lumière chaude de fin de journée */}
-      <ambientLight intensity={0.75} color="#ffe9c4" />
-      <directionalLight position={[-6, 5, -12]} intensity={2.2} color="#ffd98a" />
+      <ambientLight intensity={0.55} color="#ffe9c4" />
+      <directionalLight position={[-6, 5, -12]} intensity={1.8} color="#ffd98a" />
       <directionalLight position={[4, 6, 8]} intensity={0.5} color="#cdeef2" />
 
       <Ocean tier={tier} />
