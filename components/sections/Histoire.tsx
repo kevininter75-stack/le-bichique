@@ -8,15 +8,15 @@ import Marquee from "@/components/ui/animations/Marquee";
 const beats = [
   {
     n: "01",
-    title: "Le bateau largue les amarres",
-    text: "Notre bateau de pêche artisanal part traquer le poisson au large de Saint-Gilles. Pas de chalut, pas de gaspillage — une équipe de pépitas, des lignes, et beaucoup de patience.",
+    title: "Les pêcheurs larguent les amarres",
+    text: "Les bateaux de pêche artisanale de Saint-Gilles partent traquer le poisson au large — à la ligne, pas au chalut. On travaille main dans la main avec eux depuis le premier jour.",
     img: "/images/bateau.jpg",
-    alt: "Bateau de pêche artisanal rouge sur l'eau",
+    alt: "Bateau de pêche artisanale sur l'eau",
   },
   {
     n: "02",
     title: "Le poisson touche le quai",
-    text: "Tous les deux ou trois jours, il accoste juste en bas du restaurant avec sa cargaison : thon, mahi-mahi, poissons du large. On choisit, on tranche, on ne triche pas.",
+    text: "Tous les deux ou trois jours, on choisit le meilleur de leur retour de pêche, à quelques mètres du restaurant : thon, mahi-mahi, poissons du large. On tranche, on ne triche pas.",
     img: "/images/poisson-frais.jpg",
     alt: "Poissons frais sur glace au retour de pêche",
   },
@@ -24,12 +24,12 @@ const beats = [
     n: "03",
     title: "Et file droit en cuisine",
     text: "Carte courte, produits de saison, assiettes qui bougent selon la pêche. Quand on écrit « poisson du jour », le jour compte vraiment.",
-    img: "/images/carpaccio.jpg",
-    alt: "Carpaccio de poisson frais dressé à l'assiette",
+    img: "/images/assiette-signature.jpg",
+    alt: "Assiette signature dressée par la cuisine du Ti Mahi Mahi",
   },
 ];
 
-const marqueeItems = ["Pêche artisanale", "Circuits courts", "Carte courte", "Produits péi", "Poisson du jour"];
+const marqueeItems = ["Pêcheurs locaux", "Circuits courts", "Carte courte", "Produits péi", "Poisson du jour"];
 
 export default function Histoire() {
   return (
@@ -50,7 +50,7 @@ export default function Histoire() {
         <Reveal delay={0.15}>
           <p className="mt-6 max-w-xl text-lg text-ecume/80">
             Ici, le circuit court n&apos;est pas un argument marketing : c&apos;est une ligne
-            droite entre le port de plaisance et votre table.
+            droite entre les bateaux des pêcheurs de Saint-Gilles et votre table.
           </p>
         </Reveal>
       </div>

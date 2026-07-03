@@ -5,7 +5,7 @@
 
 export const restaurant = {
   name: "Le Ti Mahi Mahi",
-  tagline: "Notre bateau pêche. Vous, vous régalez.",
+  tagline: "Les pêcheurs du coin pêchent. Vous, vous régalez.",
   address: {
     street: "167 rue du Général de Gaulle",
     city: "Saint-Gilles-les-Bains",
@@ -39,7 +39,7 @@ export const menuMidi: Dish[] = [
   {
     name: "Tartare de thon rouge « Ti Classique »",
     description:
-      "Notre signature depuis le premier jour : thon du bateau, gingembre, combava, huile de sésame. Le poisson a dormi en mer avant-hier.",
+      "Notre signature depuis le premier jour : thon de la pêche locale, gingembre, combava, huile de sésame. Le poisson a dormi en mer avant-hier.",
     badge: "Signature",
     image: "/images/tartare-thon.jpg",
   },
@@ -53,7 +53,7 @@ export const menuMidi: Dish[] = [
   {
     name: "Carpaccio du retour de pêche",
     description:
-      "Tranché minute selon ce que le capitaine a remonté. Huile d'olive citronnée, fleur de sel, point final.",
+      "Tranché minute selon ce que les pêcheurs ont remonté. Huile d'olive citronnée, fleur de sel, point final.",
     image: "/images/carpaccio.jpg",
   },
   {
@@ -72,7 +72,7 @@ export const menuMidi: Dish[] = [
     name: "Salade fraîcheur lagon",
     description:
       "Poisson mi-cuit, mangue verte, herbes du jardin, vinaigrette combava. Légère comme un après-midi à l'Ermitage.",
-    image: "/images/salade.jpg",
+    image: "/images/plat-fleurs.jpg",
   },
 ];
 
@@ -80,10 +80,10 @@ export const menuSoir: Dish[] = [
   {
     name: "Rillettes de poisson fumé maison",
     description: "Fumées doucement au bois, à tartiner sans compter.",
-    image: "/images/mezze.jpg",
+    image: "/images/table-partage.jpg",
   },
   {
-    name: "Samoussas du capitaine",
+    name: "Samoussas péi",
     description: "Pliés à la main, garnis du poisson de la semaine.",
     image: "/images/tartare-mahi.jpg",
   },
@@ -100,7 +100,7 @@ export const menuSoir: Dish[] = [
   {
     name: "Tataki flammé au feu de bois",
     description: "Saisi une poignée de secondes, servi tiède, sauce soja-tamarin.",
-    image: "/images/carpaccio.jpg",
+    image: "/images/tataki.jpg",
   },
   {
     name: "La douceur du moment",

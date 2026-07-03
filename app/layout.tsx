@@ -18,7 +18,7 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Le Ti Mahi Mahi — Poisson frais & mezze au port de Saint-Gilles",
   description:
-    "Restaurant de poisson frais au-dessus du port de Saint-Gilles-les-Bains, La Réunion. Notre bateau pêche, vous vous régalez : tartares signature le midi, mezze à partager le soir, et le brunch électro FOOD&FUNK tous les deux mois.",
+    "Restaurant de poisson frais au-dessus du port de Saint-Gilles-les-Bains, La Réunion. Poisson des pêcheurs locaux : tartares signature le midi, mezze à partager le soir, et le brunch électro FOOD&FUNK tous les deux mois.",
 };
 
 export default function RootLayout({

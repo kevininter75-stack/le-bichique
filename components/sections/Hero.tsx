@@ -118,8 +118,8 @@ export default function Hero() {
           style={{ textShadow: "0 1px 18px rgba(4, 31, 43, 0.75)" }}
         >
           {restaurant.tagline}{" "}
-          Amarré juste en bas, il ramène le poisson tous les deux ou trois jours — autant dire
-          qu&apos;il n&apos;a pas le temps de s&apos;ennuyer.
+          Leurs bateaux accostent juste en bas : ce qu&apos;ils remontent du large finit dans vos
+          assiettes quelques heures plus tard.
         </p>
         <div data-hero-cta className="mt-10 flex flex-wrap items-center gap-4">
           <a
