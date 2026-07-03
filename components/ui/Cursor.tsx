@@ -1,16 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useSyncExternalStore } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "@/lib/gsap";
 import { useReducedMotion } from "@/lib/useReducedMotion";
-
-const POINTER_QUERY = "(pointer: fine)";
-
-function subscribePointer(callback: () => void) {
-  const mq = window.matchMedia(POINTER_QUERY);
-  mq.addEventListener("change", callback);
-  return () => mq.removeEventListener("change", callback);
-}
+import { useFinePointer } from "@/lib/useFinePointer";
 
 /**
  * Curseur décoratif : un point précis + un anneau qui suit avec inertie.
@@ -21,11 +14,7 @@ export default function Cursor() {
   const dot = useRef<HTMLDivElement>(null);
   const ring = useRef<HTMLDivElement>(null);
   const reduced = useReducedMotion();
-  const finePointer = useSyncExternalStore(
-    subscribePointer,
-    () => window.matchMedia(POINTER_QUERY).matches,
-    () => false // rendu serveur : pas de curseur custom
-  );
+  const finePointer = useFinePointer();
   const enabled = finePointer && !reduced;
 
   useEffect(() => {

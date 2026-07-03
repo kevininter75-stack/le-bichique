@@ -1,6 +1,7 @@
 import Nav from "@/components/ui/Nav";
 import Hero from "@/components/sections/Hero";
 import Histoire from "@/components/sections/Histoire";
+import Carte from "@/components/sections/Carte";
 
 /** Sections à venir dans les prochaines phases — ancres déjà en place. */
 function PlaceholderSection({ id, title }: { id: string; title: string }) {
@@ -18,7 +19,7 @@ export default function Home() {
       <Nav />
       <Hero />
       <Histoire />
-      <PlaceholderSection id="carte" title="La carte" />
+      <Carte />
       <PlaceholderSection id="ambiance" title="L'ambiance" />
       <PlaceholderSection id="foodfunk" title="FOOD&FUNK" />
       <PlaceholderSection id="infos" title="Infos pratiques" />

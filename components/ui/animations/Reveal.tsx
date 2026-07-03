@@ -20,14 +20,18 @@ export default function Reveal({ children, className, delay = 0, y = 44 }: Props
   useEffect(() => {
     const el = ref.current;
     if (reduced || !el) return;
-    const tween = gsap.from(el, {
-      y,
-      autoAlpha: 0,
-      duration: 1.05,
-      ease: "power3.out",
-      delay,
-      scrollTrigger: { trigger: el, start: "top 90%", once: true },
-    });
+    const tween = gsap.fromTo(
+      el,
+      { y, autoAlpha: 0 },
+      {
+        y: 0,
+        autoAlpha: 1,
+        duration: 1.05,
+        ease: "power3.out",
+        delay,
+        scrollTrigger: { trigger: el, start: "top 90%", once: true },
+      }
+    );
     return () => {
       tween.scrollTrigger?.kill();
       tween.kill();
