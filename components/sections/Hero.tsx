@@ -1,28 +1,37 @@
 "use client";
 
-import dynamic from "next/dynamic";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { restaurant } from "@/lib/data";
 import { gsap, SplitText } from "@/lib/gsap";
-import { usePerfTier } from "@/lib/usePerfTier";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
-const Experience = dynamic(() => import("@/components/canvas/Experience"), { ssr: false });
-
+/**
+ * Hero photo cinématique : littoral de La Réunion au crépuscule (photo libre de
+ * droits, à remplacer par une photo du port de Saint-Gilles / du bateau).
+ * Chorégraphie : la photo « se pose » (dézoom), le titre se révèle ligne par
+ * ligne sous masque, puis parallax de sortie au scroll.
+ */
 export default function Hero() {
-  const tier = usePerfTier();
   const reduced = useReducedMotion();
-  const [ready, setReady] = useState(false);
+  const [loaded, setLoaded] = useState(false);
   const section = useRef<HTMLElement>(null);
+  const media = useRef<HTMLDivElement>(null);
   const content = useRef<HTMLDivElement>(null);
 
-  // Chorégraphie d'entrée une fois la scène 3D prête (le voile couvre l'attente)
   useEffect(() => {
-    if (!ready || reduced || !section.current) return;
+    if (!loaded || reduced || !section.current) return;
     const ctx = gsap.context(() => {
+      // La photo apparaît et se pose doucement
+      gsap.fromTo(
+        media.current,
+        { autoAlpha: 0, scale: 1.12 },
+        { autoAlpha: 1, scale: 1, duration: 2.2, ease: "power2.out" }
+      );
+
       const split = SplitText.create("[data-hero-title]", { type: "lines", mask: "lines" });
       gsap
-        .timeline()
+        .timeline({ delay: 0.35 })
         .from("[data-hero-kicker]", { y: 24, autoAlpha: 0, duration: 0.8, ease: "power3.out" })
         .from(
           split.lines,
@@ -36,7 +45,17 @@ export default function Hero() {
           0.8
         );
 
-      // Sortie : le contenu remonte et s'estompe quand on scrolle
+      // Sortie au scroll : la photo descend moins vite, le contenu remonte
+      gsap.to(media.current, {
+        yPercent: 16,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
       gsap.to(content.current, {
         yPercent: -20,
         autoAlpha: 0,
@@ -50,57 +69,27 @@ export default function Hero() {
       });
     }, section);
     return () => ctx.revert();
-  }, [ready, reduced]);
+  }, [loaded, reduced]);
 
   return (
-    <section ref={section} className="relative min-h-svh overflow-hidden" aria-label="Accueil">
-      {/* Ciel de fin de journée (dégradé CSS, gratuit en perf) */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(to bottom, #041f2b 0%, #0a3e58 30%, #4f93a8 45%, #e8a643 52%, #e19b3c 57%, #083247 62%, #083247 100%)",
-        }}
-      />
-      {/* Halo du soleil couchant */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 42% 26% at 32% 50%, rgba(242, 185, 80, 0.42), transparent 70%)",
-        }}
-      />
-
-      {/* Scène 3D — ou océan statique si reduced-motion */}
-      {reduced ? (
-        <div
-          className="absolute inset-x-0 bottom-0 h-[45%]"
-          style={{
-            background: "linear-gradient(to bottom, #e8a643 0%, #083247 12%, #17958d 100%)",
-          }}
+    <section ref={section} className="relative min-h-svh overflow-hidden bg-abysse" aria-label="Accueil">
+      {/* Photo plein cadre */}
+      <div ref={media} className={`absolute inset-0 ${reduced ? "" : "opacity-0"}`}>
+        <Image
+          src="/images/hero-ocean-2.jpg"
+          alt=""
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+          onLoad={() => setLoaded(true)}
         />
-      ) : (
-        <div className="absolute inset-0" aria-hidden="true">
-          <Experience tier={tier} onReady={() => setReady(true)} />
-        </div>
-      )}
+      </div>
 
-      {/* Voile de lisibilité derrière le contenu */}
-      <div className="pointer-events-none absolute inset-0 z-[5] bg-gradient-to-r from-abysse/65 via-abysse/25 to-transparent" />
-      {/* Fondu vers la section suivante pour une transition sans couture */}
+      {/* Voiles de lisibilité : haut (nav), gauche (contenu), bas (transition) */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[5] h-40 bg-gradient-to-b from-abysse/70 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 z-[5] bg-gradient-to-r from-abysse/70 via-abysse/30 to-transparent" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-56 bg-gradient-to-b from-transparent to-abysse" />
-
-      {/* Voile de chargement, s'efface dès que la scène est prête */}
-      {!reduced && (
-        <div
-          className={`absolute inset-0 z-20 flex items-center justify-center bg-abysse transition-opacity duration-1000 ${
-            ready ? "pointer-events-none opacity-0" : "opacity-100"
-          }`}
-          aria-hidden="true"
-        >
-          <p className="font-display text-2xl text-turquoise animate-pulse">Le Ti Mahi Mahi</p>
-        </div>
-      )}
 
       {/* Contenu */}
       <div
