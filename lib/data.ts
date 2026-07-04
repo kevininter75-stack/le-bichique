@@ -60,7 +60,7 @@ export const entrees: Dish[] = [
     description:
       "Grillé au feu vif, vinaigrette tamarin, cacahuètes torréfiées. Quand la mer le veut bien — sinon une deuxième entrée végétale prend le relais.",
     badge: "Selon la pêche",
-    image: "/images/salade.jpg",
+    image: "/images/poulpe.jpg",
   },
 ];
 
@@ -97,7 +97,7 @@ export const plats: Dish[] = [
     description:
       "Flammé au wok, laqué soja-tamarin, riz croustillant. C'est la mer qui décide, pas nous.",
     badge: "Selon la pêche",
-    image: "/images/mezze.jpg",
+    image: "/images/calamar.jpg",
   },
   {
     name: "Le plat végétal",
