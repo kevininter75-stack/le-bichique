@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { carteNote, entrees, mezzes, plats, restaurant, type Dish } from "@/lib/data";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { useFinePointer } from "@/lib/useFinePointer";
@@ -18,13 +18,29 @@ export default function Carte() {
   const previewEnabled = finePointer && !reduced;
 
   const preview = useRef<HTMLDivElement>(null);
+  const previewVisible = useRef(false);
   const [previewSrc, setPreviewSrc] = useState("");
+
+  const hidePreview = useCallback(() => {
+    if (!previewVisible.current || !preview.current) return;
+    previewVisible.current = false;
+    gsap.to(preview.current, { autoAlpha: 0, scale: 0.92, duration: 0.25, ease: "power2.in" });
+  }, []);
 
   // Les listes remontent à la bascule midi/soir : on force ScrollTrigger à
   // réévaluer les nouveaux éléments déjà visibles, sinon ils restent masqués.
   useEffect(() => {
     ScrollTrigger.refresh();
-  }, [service]);
+    hidePreview(); // la ligne survolée vient de disparaître
+  }, [service, hidePreview]);
+
+  // Au scroll, la page bouge sous le curseur sans déclencher de mouseleave :
+  // on masque l'aperçu pour qu'il ne reste pas collé au curseur.
+  useEffect(() => {
+    if (!previewEnabled) return;
+    window.addEventListener("scroll", hidePreview, { passive: true });
+    return () => window.removeEventListener("scroll", hidePreview);
+  }, [previewEnabled, hidePreview]);
 
   // L'aperçu photo suit le curseur avec un léger retard (effet Edem)
   useEffect(() => {
@@ -42,15 +58,17 @@ export default function Carte() {
   const showPreview = (src?: string) => {
     if (!previewEnabled || !src || !preview.current) return;
     setPreviewSrc(src);
+    previewVisible.current = true;
     gsap.to(preview.current, { autoAlpha: 1, scale: 1, duration: 0.35, ease: "power3.out" });
-  };
-  const hidePreview = () => {
-    if (!previewEnabled || !preview.current) return;
-    gsap.to(preview.current, { autoAlpha: 0, scale: 0.92, duration: 0.25, ease: "power2.in" });
   };
 
   return (
-    <section id="carte" className="relative bg-sable py-28 text-encre md:py-40" aria-label="La carte">
+    <section
+      id="carte"
+      className="relative bg-sable py-28 text-encre md:py-40"
+      aria-label="La carte"
+      onMouseLeave={hidePreview}
+    >
       <div className="mx-auto max-w-5xl px-6">
         <Reveal>
           <p className="mb-4 text-sm font-medium uppercase tracking-[0.25em] text-lagon">
