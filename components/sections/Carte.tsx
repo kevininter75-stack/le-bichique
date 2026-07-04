@@ -35,13 +35,15 @@ export default function Carte() {
   }, [service, hidePreview]);
 
   // Au scroll, la page bouge sous le curseur sans déclencher de mouseleave,
-  // et Chrome redéclenche un survol sur la ligne qui atterrit sous la souris :
-  // on masque l'aperçu ET on ignore les survols pendant/juste après le scroll.
-  const scrollingUntil = useRef(0);
+  // et Chrome redéclenche un survol sur la ligne qui atterrit sous la souris.
+  // Règle : l'aperçu ne s'affiche que si la souris a vraiment bougé depuis le
+  // dernier scroll — un survol sans mouvement réel est un survol fantôme.
+  const lastMoveAt = useRef(0);
+  const lastScrollAt = useRef(0);
   useEffect(() => {
     if (!previewEnabled) return;
     const onScroll = () => {
-      scrollingUntil.current = Date.now() + 300;
+      lastScrollAt.current = Date.now();
       hidePreview();
     };
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -54,8 +56,9 @@ export default function Carte() {
     const xTo = gsap.quickTo(preview.current, "x", { duration: 0.5, ease: "power3.out" });
     const yTo = gsap.quickTo(preview.current, "y", { duration: 0.5, ease: "power3.out" });
     const onMove = (e: MouseEvent) => {
+      lastMoveAt.current = Date.now();
       xTo(e.clientX + 28);
-      yTo(e.clientY - 120);
+      yTo(e.clientY - 100);
     };
     window.addEventListener("mousemove", onMove);
     return () => window.removeEventListener("mousemove", onMove);
@@ -63,11 +66,11 @@ export default function Carte() {
 
   const showPreview = (e: React.MouseEvent, src?: string) => {
     if (!previewEnabled || !src || !preview.current) return;
-    if (Date.now() < scrollingUntil.current) return; // survol induit par le scroll
+    if (lastMoveAt.current <= lastScrollAt.current) return; // survol induit par le scroll
     setPreviewSrc(src);
     if (!previewVisible.current) {
       // Positionne l'aperçu sur le curseur avant de l'afficher (jamais de position fantôme)
-      gsap.set(preview.current, { x: e.clientX + 28, y: e.clientY - 120 });
+      gsap.set(preview.current, { x: e.clientX + 28, y: e.clientY - 100 });
     }
     previewVisible.current = true;
     gsap.to(preview.current, { autoAlpha: 1, scale: 1, duration: 0.35, ease: "power3.out" });
@@ -161,12 +164,12 @@ export default function Carte() {
       {/* Aperçu photo flottant qui suit le curseur (desktop uniquement) */}
       <div
         ref={preview}
-        className="pointer-events-none fixed left-0 top-0 z-30 h-64 w-52 origin-center scale-90 overflow-hidden rounded-2xl opacity-0 shadow-2xl"
+        className="pointer-events-none fixed left-0 top-0 z-30 h-44 w-36 origin-center scale-90 overflow-hidden rounded-xl opacity-0 shadow-2xl"
         style={{ visibility: "hidden" }}
         aria-hidden="true"
       >
         {previewSrc && (
-          <Image src={previewSrc} alt="" fill className="object-cover" sizes="208px" />
+          <Image src={previewSrc} alt="" fill className="object-cover" sizes="144px" />
         )}
       </div>
     </section>
@@ -204,8 +207,8 @@ function DishGroup({
               >
                 {/* Miniature visible sur mobile/tactile uniquement */}
                 {dish.image && (
-                  <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl md:hidden">
-                    <Image src={dish.image} alt="" fill className="object-cover" sizes="64px" />
+                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg md:hidden">
+                    <Image src={dish.image} alt="" fill className="object-cover" sizes="48px" />
                   </div>
                 )}
                 <div>
