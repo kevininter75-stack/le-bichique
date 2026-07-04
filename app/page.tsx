@@ -2,16 +2,10 @@ import Nav from "@/components/ui/Nav";
 import Hero from "@/components/sections/Hero";
 import Histoire from "@/components/sections/Histoire";
 import Carte from "@/components/sections/Carte";
-
-/** Sections à venir dans les prochaines phases — ancres déjà en place. */
-function PlaceholderSection({ id, title }: { id: string; title: string }) {
-  return (
-    <section id={id} className="mx-auto max-w-6xl px-6 py-32">
-      <h2 className="font-display text-4xl text-ecume/40">{title}</h2>
-      <p className="mt-3 text-sm text-ecume/30">Section en cours de construction…</p>
-    </section>
-  );
-}
+import Ambiance from "@/components/sections/Ambiance";
+import FoodFunk from "@/components/sections/FoodFunk";
+import Infos from "@/components/sections/Infos";
+import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   return (
@@ -20,9 +14,10 @@ export default function Home() {
       <Hero />
       <Histoire />
       <Carte />
-      <PlaceholderSection id="ambiance" title="L'ambiance" />
-      <PlaceholderSection id="foodfunk" title="FOOD&FUNK" />
-      <PlaceholderSection id="infos" title="Infos pratiques" />
+      <Ambiance />
+      <FoodFunk />
+      <Infos />
+      <Footer />
     </main>
   );
 }

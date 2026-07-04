@@ -20,10 +20,9 @@ export const restaurant = {
   geo: { lat: -21.0578, lng: 55.2227 },
   phone: "0692 10 90 66",
   phoneIntl: "+262692109066",
-  // À confirmer avec le restaurant
   hours: {
-    midi: { label: "Le midi", days: "Du mardi au dimanche", time: "12h — 14h30" },
-    soir: { label: "Le soir", days: "Du jeudi au samedi", time: "19h — 22h" },
+    midi: { label: "Le midi", days: "Mardi, mercredi et jeudi", time: "12h — 14h30" },
+    soir: { label: "Le soir — mezze", days: "Vendredi et samedi", time: "19h — 21h30" },
   },
   social: {
     instagram: "https://www.instagram.com/letimahimahi/",
@@ -154,9 +153,28 @@ export const mezzes: Dish[] = [
 
 export const foodAndFunk = {
   name: "FOOD&FUNK",
-  frequency: "Tous les deux mois",
-  brunch: "Brunch de 12h à 14h30",
-  after: "DJ set open air jusqu'au coucher du soleil",
+  frequency: "Un dimanche tous les 2-3 mois",
   pitch:
-    "Un brunch iodé, puis les platines prennent le relais face au port. Ça c'est plutôt cool non ?",
+    "On mange, on pousse les tables, on monte le son. Le port de Saint-Gilles n'a jamais vu un dimanche pareil. Ça c'est plutôt cool non ?",
+  timeline: [
+    {
+      time: "12h — 15h",
+      label: "On mange",
+      text: "Le repas des grands jours, à table face au port. Réservez, ça part vite.",
+    },
+    {
+      time: "15h",
+      label: "On pousse les tables",
+      text: "Toutes les tables disparaissent, la terrasse s'ouvre à tout le monde. Entrée libre.",
+    },
+    {
+      time: "Jusqu'à 22h",
+      label: "On danse",
+      text: "Les DJs enchaînent les sets open air pendant que le soleil descend sur le port.",
+    },
+  ],
+  bars: [
+    { name: "Le bar", items: "Bières pression, vins, softs" },
+    { name: "Le bar à cocktails", items: "Dont le fameux Maï Taï du Ti Mahi Mahi" },
+  ],
 } as const;
