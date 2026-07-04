@@ -142,7 +142,7 @@ export const mezzes: Dish[] = [
   {
     name: "Bao du moment",
     description: "Moelleux, garni du poisson du jour ou des légumes du marché.",
-    image: "/images/poisson-grille.jpg",
+    image: "/images/bao.jpg",
   },
   {
     name: "La douceur du moment",
