@@ -126,7 +126,7 @@ export const mezzes: Dish[] = [
   {
     name: "Samoussas péi",
     description: "Pliés à la main, garnis du poisson de la semaine.",
-    image: "/images/table-partage.jpg",
+    image: "/images/samoussas.jpg",
   },
   {
     name: "Tataki flammé",
