@@ -34,12 +34,18 @@ export default function Carte() {
     hidePreview(); // la ligne survolée vient de disparaître
   }, [service, hidePreview]);
 
-  // Au scroll, la page bouge sous le curseur sans déclencher de mouseleave :
-  // on masque l'aperçu pour qu'il ne reste pas collé au curseur.
+  // Au scroll, la page bouge sous le curseur sans déclencher de mouseleave,
+  // et Chrome redéclenche un survol sur la ligne qui atterrit sous la souris :
+  // on masque l'aperçu ET on ignore les survols pendant/juste après le scroll.
+  const scrollingUntil = useRef(0);
   useEffect(() => {
     if (!previewEnabled) return;
-    window.addEventListener("scroll", hidePreview, { passive: true });
-    return () => window.removeEventListener("scroll", hidePreview);
+    const onScroll = () => {
+      scrollingUntil.current = Date.now() + 300;
+      hidePreview();
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, [previewEnabled, hidePreview]);
 
   // L'aperçu photo suit le curseur avec un léger retard (effet Edem)
@@ -55,9 +61,14 @@ export default function Carte() {
     return () => window.removeEventListener("mousemove", onMove);
   }, [previewEnabled]);
 
-  const showPreview = (src?: string) => {
+  const showPreview = (e: React.MouseEvent, src?: string) => {
     if (!previewEnabled || !src || !preview.current) return;
+    if (Date.now() < scrollingUntil.current) return; // survol induit par le scroll
     setPreviewSrc(src);
+    if (!previewVisible.current) {
+      // Positionne l'aperçu sur le curseur avant de l'afficher (jamais de position fantôme)
+      gsap.set(preview.current, { x: e.clientX + 28, y: e.clientY - 120 });
+    }
     previewVisible.current = true;
     gsap.to(preview.current, { autoAlpha: 1, scale: 1, duration: 0.35, ease: "power3.out" });
   };
@@ -172,7 +183,7 @@ function DishGroup({
   title: string;
   note?: string;
   dishes: Dish[];
-  onShow: (src?: string) => void;
+  onShow: (e: React.MouseEvent, src?: string) => void;
   onHide: () => void;
 }) {
   return (
@@ -187,7 +198,7 @@ function DishGroup({
             <Reveal delay={Math.min(i * 0.06, 0.35)} y={28}>
               <div
                 className="group flex items-start gap-4 border-b border-encre/10 py-6"
-                onMouseEnter={() => onShow(dish.image)}
+                onMouseEnter={(e) => onShow(e, dish.image)}
                 onMouseLeave={onHide}
                 data-cursor
               >
