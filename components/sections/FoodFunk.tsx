@@ -113,7 +113,7 @@ export default function FoodFunk() {
               href={restaurant.social.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-piment px-8 py-4 font-semibold text-ecume shadow-lg transition-transform hover:scale-105"
+              className="rounded-full bg-piment px-8 py-4 font-semibold text-abysse shadow-lg transition-transform hover:scale-105"
             >
               La prochaine date tombe sur Instagram
             </a>

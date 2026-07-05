@@ -126,7 +126,7 @@ export default function Carte() {
                 aria-selected={service === s}
                 onClick={() => setService(s)}
                 className={`rounded-full px-7 py-2.5 text-sm font-semibold uppercase tracking-wider transition-colors duration-300 ${
-                  service === s ? "bg-corail text-ecume shadow-md" : "text-encre/60 hover:text-encre"
+                  service === s ? "bg-corail text-abysse shadow-md" : "text-encre/60 hover:text-encre"
                 }`}
               >
                 {s === "midi" ? "Le midi" : "Le soir — mezze"}

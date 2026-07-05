@@ -56,7 +56,7 @@ export default function Infos() {
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
                 href={`tel:${restaurant.phoneIntl}`}
-                className="rounded-full bg-corail px-8 py-4 font-semibold text-ecume shadow-lg transition-transform hover:scale-105"
+                className="rounded-full bg-corail px-8 py-4 font-semibold text-abysse shadow-lg transition-transform hover:scale-105"
               >
                 Réserver — {restaurant.phone}
               </a>

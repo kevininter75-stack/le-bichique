@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fraunces, Outfit } from "next/font/google";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import Cursor from "@/components/ui/Cursor";
@@ -69,6 +69,10 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#041f2b",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -77,6 +81,13 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${fraunces.variable} ${outfit.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
+        {/* Lien d'évitement pour la navigation clavier */}
+        <a
+          href="#contenu"
+          className="sr-only z-50 rounded-full bg-or px-6 py-3 font-semibold text-abysse focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+        >
+          Aller au contenu
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
