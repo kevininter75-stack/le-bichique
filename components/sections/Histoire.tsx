@@ -24,8 +24,8 @@ const beats = [
     n: "03",
     title: "Et file droit en cuisine",
     text: "Carte courte, produits de saison, assiettes qui bougent selon la pêche. Quand on écrit « poisson du jour », le jour compte vraiment.",
-    img: "/images/assiette-signature.jpg",
-    alt: "Assiette signature dressée par la cuisine du Bichique",
+    img: "/images/assiette.jpg",
+    alt: "Assiette de poisson dressée par la cuisine du Bichique",
   },
 ];
 

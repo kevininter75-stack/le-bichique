@@ -111,7 +111,7 @@ export const plats: Dish[] = [
     description:
       "Une seule viande, bien choisie : caramélisée façon bò khô ou rôtie aux épices douces, selon l'humeur de la brigade.",
     badge: "Viande",
-    image: "/images/assiette-signature.jpg",
+    image: "/images/viande.jpg",
   },
 ];
 
