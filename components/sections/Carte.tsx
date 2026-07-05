@@ -24,7 +24,14 @@ export default function Carte() {
   const hidePreview = useCallback(() => {
     if (!previewVisible.current || !preview.current) return;
     previewVisible.current = false;
-    gsap.to(preview.current, { autoAlpha: 0, scale: 0.92, duration: 0.25, ease: "power2.in" });
+    // overwrite tue le tween d'apparition encore actif, sinon il "gagne" à la fin
+    gsap.to(preview.current, {
+      autoAlpha: 0,
+      scale: 0.92,
+      duration: 0.25,
+      ease: "power2.in",
+      overwrite: "auto",
+    });
   }, []);
 
   // Les listes remontent à la bascule midi/soir : on force ScrollTrigger à
@@ -73,7 +80,13 @@ export default function Carte() {
       gsap.set(preview.current, { x: e.clientX + 28, y: e.clientY - 100 });
     }
     previewVisible.current = true;
-    gsap.to(preview.current, { autoAlpha: 1, scale: 1, duration: 0.35, ease: "power3.out" });
+    gsap.to(preview.current, {
+      autoAlpha: 1,
+      scale: 1,
+      duration: 0.35,
+      ease: "power3.out",
+      overwrite: "auto",
+    });
   };
 
   return (
