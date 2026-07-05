@@ -55,15 +55,15 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  // ⚠️ à remplacer par le domaine définitif une fois acheté
-  metadataBase: new URL("https://timahimahi.vercel.app"),
-  title: "Le Ti Mahi Mahi — Poisson frais & mezze au port de Saint-Gilles",
+  // ⚠️ à remplacer par l'URL Vercel réelle après le déploiement
+  metadataBase: new URL("https://la-bichique.vercel.app"),
+  title: "La Bichique — Poisson frais & mezze au port de Saint-Gilles",
   description:
-    "Restaurant de poisson frais au-dessus du port de Saint-Gilles-les-Bains, La Réunion. Poisson des pêcheurs locaux : tartares signature le midi, mezze à partager le soir, et le brunch électro FOOD&FUNK tous les deux mois.",
+    "Restaurant fictif de poisson frais au-dessus du port de Saint-Gilles-les-Bains, La Réunion. Poisson des pêcheurs locaux : tartares signature le midi, mezze à partager le soir, et le brunch électro FUNKY LAGON tous les 2-3 mois. Site de démonstration.",
   openGraph: {
-    title: "Le Ti Mahi Mahi — Poisson frais & mezze au port de Saint-Gilles",
+    title: "La Bichique — Poisson frais & mezze au port de Saint-Gilles",
     description:
-      "Les pêcheurs du coin pêchent. Vous, vous régalez. Tartares signature le midi, mezze le soir, brunch électro FOOD&FUNK tous les 2-3 mois.",
+      "Les pêcheurs du coin pêchent. Vous, vous régalez. Tartares signature le midi, mezze le soir, brunch électro FUNKY LAGON tous les 2-3 mois.",
     locale: "fr_FR",
     type: "website",
   },

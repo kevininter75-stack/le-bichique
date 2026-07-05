@@ -7,10 +7,10 @@
  */
 
 export const restaurant = {
-  name: "Le Ti Mahi Mahi",
+  name: "La Bichique",
   tagline: "Les pêcheurs du coin pêchent. Vous, vous régalez.",
   address: {
-    street: "167 rue du Général de Gaulle",
+    street: "12 quai des Pêcheurs", // adresse fictive
     city: "Saint-Gilles-les-Bains",
     commune: "Saint-Paul",
     postalCode: "97434",
@@ -18,15 +18,15 @@ export const restaurant = {
     country: "FR",
   },
   geo: { lat: -21.0578, lng: 55.2227 },
-  phone: "0692 10 90 66",
-  phoneIntl: "+262692109066",
+  phone: "0692 12 34 56", // numéro fictif
+  phoneIntl: "+262692123456",
   hours: {
     midi: { label: "Le midi", days: "Mardi, mercredi et jeudi", time: "12h — 14h30" },
     soir: { label: "Le soir — mezze", days: "Vendredi et samedi", time: "19h — 21h30" },
   },
   social: {
-    instagram: "https://www.instagram.com/letimahimahi/",
-    facebook: "https://www.facebook.com/", // à compléter
+    instagram: "https://www.instagram.com/", // compte fictif (@labichique)
+    facebook: "https://www.facebook.com/", // fictif
   },
 } as const;
 
@@ -47,7 +47,7 @@ export const entrees: Dish[] = [
     description:
       "Ravioles vapeur aux légumes péi, bouillon citronnelle-gingembre. La touche asiatique de la maison, dès l'entrée.",
     badge: "Végé",
-    image: "/images/table-partage.jpg",
+    image: "/images/vapeurs.jpg",
   },
   {
     name: "Gravlax combava",
@@ -76,7 +76,7 @@ export const plats: Dish[] = [
   {
     name: "Tartare de mahi-mahi coco-passion",
     description:
-      "Le poisson qui a donné son nom à la maison, réveillé par le lait coco, la passion et un tour de piment doux.",
+      "La dorade coryphène des eaux réunionnaises, réveillée par le lait coco, la passion et un tour de piment doux.",
     badge: "Signature",
     image: "/images/tartare-mahi.jpg",
   },
@@ -104,12 +104,12 @@ export const plats: Dish[] = [
     description:
       "Curry doux de légumes péi au lait coco, condiment mangue verte. Végétarien, mais personne ne s'en plaint.",
     badge: "Végé",
-    image: "/images/plat-fleurs.jpg",
+    image: "/images/curry.jpg",
   },
   {
     name: "La viande du moment",
     description:
-      "Une seule viande, bien choisie : caramélisée façon bò khô ou rôtie aux épices douces, selon l'humeur des pépitas.",
+      "Une seule viande, bien choisie : caramélisée façon bò khô ou rôtie aux épices douces, selon l'humeur de la brigade.",
     badge: "Viande",
     image: "/images/assiette-signature.jpg",
   },
@@ -146,13 +146,13 @@ export const mezzes: Dish[] = [
   },
   {
     name: "La douceur du moment",
-    description: "Le dessert change selon l'humeur des pépitas en cuisine. Faites confiance.",
+    description: "Le dessert change selon l'humeur de la brigade. Faites confiance.",
     image: "/images/dessert.jpg",
   },
 ];
 
 export const foodAndFunk = {
-  name: "FOOD&FUNK",
+  name: "FUNKY LAGON",
   frequency: "Un dimanche tous les 2-3 mois",
   pitch:
     "On mange, on pousse les tables, on monte le son. Le port de Saint-Gilles n'a jamais vu un dimanche pareil. Ça c'est plutôt cool non ?",
@@ -175,6 +175,6 @@ export const foodAndFunk = {
   ],
   bars: [
     { name: "Le bar", items: "Bières pression, vins, softs" },
-    { name: "Le bar à cocktails", items: "Dont le fameux Maï Taï du Ti Mahi Mahi" },
+    { name: "Le bar à cocktails", items: "Dont le fameux Maï Taï du lagon" },
   ],
 } as const;

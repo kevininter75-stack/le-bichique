@@ -108,9 +108,9 @@ export default function Hero() {
           className="font-display text-6xl leading-[0.95] text-ecume md:text-8xl"
           style={{ textShadow: "0 2px 30px rgba(4, 31, 43, 0.45)" }}
         >
-          Le Ti
+          La
           <br />
-          Mahi Mahi
+          Bichique
         </h1>
         <p
           data-hero-text

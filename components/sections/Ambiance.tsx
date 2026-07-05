@@ -32,14 +32,14 @@ export default function Ambiance() {
           </TextReveal>
           <Reveal delay={0.15}>
             <p className="mt-6 max-w-md text-lg leading-relaxed text-ecume/80">
-              Une terrasse suspendue au-dessus du port de plaisance, des parasols à franges, des
-              guirlandes qui s&apos;allument quand le soleil descend. Le midi, ça rigole fort ;
-              le soir, la lumière se tamise et les mezze se partagent au milieu de la table.
+              Une terrasse suspendue au-dessus du port de plaisance, des guirlandes qui
+              s&apos;allument quand le soleil descend. Le midi, ça rigole fort ; le soir, la
+              lumière se tamise et les mezze se partagent au milieu de la table.
             </p>
           </Reveal>
           <Reveal delay={0.25}>
             <p className="mt-4 max-w-md text-lg leading-relaxed text-ecume/80">
-              Entre amis, en amoureux, en tribu — la maison est tenue par une équipe de pépitas
+              Entre amis, en amoureux, en tribu — la maison est tenue par une joyeuse brigade
               qui vous reçoit comme à la maison, en mieux équipé côté poisson.
             </p>
           </Reveal>
@@ -51,8 +51,8 @@ export default function Ambiance() {
             <Parallax className="h-full" strength={8}>
               <div className="relative h-full w-full scale-[1.15]">
                 <Image
-                  src="/images/terrasse-timahimahi.jpg"
-                  alt="La terrasse du Ti Mahi Mahi : parasols à franges, guirlandes et fleurs sur les tables"
+                  src="/images/terrasse.jpg"
+                  alt="La terrasse suspendue au-dessus de l'eau, à l'heure dorée"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 80vw, 40vw"

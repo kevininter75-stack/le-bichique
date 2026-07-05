@@ -6,14 +6,14 @@ import Parallax from "@/components/ui/animations/Parallax";
 import ImageReveal from "@/components/ui/animations/ImageReveal";
 import Marquee from "@/components/ui/animations/Marquee";
 
-const marqueeItems = ["FOOD&FUNK", "DJ sets open air", "Maï Taï", "Bières pression", "Face au port"];
+const marqueeItems = ["FUNKY LAGON", "DJ sets open air", "Maï Taï", "Bières pression", "Face au port"];
 
 export default function FoodFunk() {
   return (
     <section
-      id="foodfunk"
+      id="funkylagon"
       className="relative overflow-hidden bg-abysse py-28 md:py-40"
-      aria-label="FOOD&FUNK, le brunch électro"
+      aria-label="FUNKY LAGON, le brunch électro"
     >
       {/* Lueur rose piment : la section festive change de température */}
       <div
@@ -83,7 +83,7 @@ export default function FoodFunk() {
             <Parallax className="h-full" strength={10}>
               <div className="relative h-full w-full scale-[1.15]">
                 <Image
-                  src="/images/foodfunk.jpg"
+                  src="/images/funky-lagon.jpg"
                   alt="DJ aux platines au coucher du soleil"
                   fill
                   className="object-cover"
@@ -96,7 +96,7 @@ export default function FoodFunk() {
             <Parallax className="h-full" strength={10}>
               <div className="relative h-full w-full scale-[1.15]">
                 <Image
-                  src="/images/foodfunk-2.jpg"
+                  src="/images/funky-lagon-2.jpg"
                   alt="La foule qui danse en plein air face à la mer"
                   fill
                   className="object-cover"

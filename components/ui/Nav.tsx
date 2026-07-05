@@ -3,7 +3,7 @@ import { restaurant } from "@/lib/data";
 const links = [
   { href: "#histoire", label: "L'histoire" },
   { href: "#carte", label: "La carte" },
-  { href: "#foodfunk", label: "FOOD&FUNK" },
+  { href: "#funkylagon", label: "FUNKY LAGON" },
   { href: "#infos", label: "Infos" },
 ];
 
@@ -15,7 +15,7 @@ export default function Nav() {
         aria-label="Navigation principale"
       >
         <a href="#" className="font-display text-xl text-ecume">
-          Ti Mahi Mahi
+          La Bichique
         </a>
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
