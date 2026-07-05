@@ -3,7 +3,7 @@ import Link from "next/link";
 import { restaurant } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Mentions légales — La Bichique",
+  title: "Mentions légales — Le Bichique",
   robots: { index: false },
 };
 

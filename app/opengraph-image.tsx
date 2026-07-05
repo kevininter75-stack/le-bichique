@@ -8,7 +8,7 @@ import { join } from "node:path";
  */
 
 export const alt =
-  "La Bichique — restaurant de poisson frais au port de Saint-Gilles, La Réunion";
+  "Le Bichique — restaurant de poisson frais au port de Saint-Gilles, La Réunion";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -74,7 +74,7 @@ export default async function OgImage() {
               marginTop: 18,
             }}
           >
-            La Bichique
+            Le Bichique
           </div>
           <div style={{ fontSize: 34, marginTop: 22, color: "#f2b950" }}>
             Les pêcheurs du coin pêchent. Vous, vous régalez.

@@ -7,7 +7,7 @@
  */
 
 export const restaurant = {
-  name: "La Bichique",
+  name: "Le Bichique",
   tagline: "Les pêcheurs du coin pêchent. Vous, vous régalez.",
   address: {
     street: "12 quai des Pêcheurs", // adresse fictive
@@ -25,7 +25,7 @@ export const restaurant = {
     soir: { label: "Le soir — mezze", days: "Vendredi et samedi", time: "19h — 21h30" },
   },
   social: {
-    instagram: "https://www.instagram.com/", // compte fictif (@labichique)
+    instagram: "https://www.instagram.com/", // compte fictif (@lebichique)
     facebook: "https://www.facebook.com/", // fictif
   },
 } as const;

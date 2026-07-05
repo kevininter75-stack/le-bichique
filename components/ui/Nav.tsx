@@ -15,7 +15,7 @@ export default function Nav() {
         aria-label="Navigation principale"
       >
         <a href="#" className="font-display text-xl text-ecume">
-          La Bichique
+          Le Bichique
         </a>
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((l) => (

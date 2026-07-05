@@ -76,7 +76,7 @@ export default function Infos() {
         <Reveal delay={0.15} className="min-h-[380px]">
           <div className="h-full min-h-[380px] overflow-hidden rounded-2xl border border-encre/10 shadow-lg">
             <iframe
-              title="Plan d'accès à La Bichique, port de Saint-Gilles-les-Bains"
+              title="Plan d'accès au Bichique, port de Saint-Gilles-les-Bains"
               src={`https://www.openstreetmap.org/export/embed.html?bbox=55.2130%2C-21.0655%2C55.2325%2C-21.0500&layer=mapnik&marker=${restaurant.geo.lat}%2C${restaurant.geo.lng}`}
               className="h-full w-full"
               loading="lazy"
