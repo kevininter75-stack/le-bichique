@@ -60,7 +60,7 @@ export default function Histoire() {
         {marqueeItems.map((item) => (
           <span
             key={item}
-            className="mx-6 flex items-center gap-12 font-display text-2xl uppercase text-ecume/25 md:text-4xl"
+            className="mx-6 flex items-center gap-12 font-display text-2xl uppercase text-ecume/50 md:text-4xl"
           >
             {item} <span className="text-or">✶</span>
           </span>

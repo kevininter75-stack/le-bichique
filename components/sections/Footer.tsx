@@ -34,13 +34,13 @@ export default function Footer() {
       </div>
       <div className="mx-auto mt-12 max-w-6xl border-t border-ecume/10 px-6 pt-6">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <p className="text-xs text-ecume/40">
+          <p className="text-xs text-ecume/70">
             © {new Date().getFullYear()} Le Bichique — Fait avec le cœur (et du poisson
             frais) au-dessus du port de Saint-Gilles.
           </p>
           <Link
             href="/mentions-legales"
-            className="text-xs text-ecume/40 underline-offset-2 transition-colors hover:text-ecume/70 hover:underline"
+            className="text-xs text-ecume/70 underline-offset-2 transition-colors hover:text-ecume hover:underline"
           >
             Mentions légales
           </Link>
