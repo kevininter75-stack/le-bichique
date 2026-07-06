@@ -77,7 +77,7 @@ export default async function OgImage() {
             Le Bichique
           </div>
           <div style={{ fontSize: 34, marginTop: 22, color: "#f2b950" }}>
-            Les pêcheurs du coin pêchent. Vous, vous régalez.
+            Le poisson arrive du port. Pas du congélateur.
           </div>
         </div>
       </div>

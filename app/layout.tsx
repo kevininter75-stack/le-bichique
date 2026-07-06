@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Le Bichique — Poisson frais & mezze au port de Saint-Gilles",
     description:
-      "Les pêcheurs du coin pêchent. Vous, vous régalez. Tartares signature le midi, mezze le soir, brunch électro FUNKY LAGON tous les 2-3 mois.",
+      "Le poisson arrive du port. Pas du congélateur. Tartares signature le midi, mezze le soir, brunch électro FUNKY LAGON tous les 2-3 mois.",
     locale: "fr_FR",
     type: "website",
   },

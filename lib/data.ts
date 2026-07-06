@@ -8,7 +8,7 @@
 
 export const restaurant = {
   name: "Le Bichique",
-  tagline: "Les pêcheurs du coin pêchent. Vous, vous régalez.",
+  tagline: "Le poisson arrive du port. Pas du congélateur.",
   address: {
     street: "12 quai des Pêcheurs", // adresse fictive
     city: "Saint-Gilles-les-Bains",
